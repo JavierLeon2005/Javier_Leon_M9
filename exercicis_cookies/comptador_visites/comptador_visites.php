@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <form method="post">
         <label for="codiDescompte">Introdueix el codi de descompte:</label>
-        <input type="text" name="codiDescompte" id="codiDescompte" required>
+        <input type="text" name="codiDescompte" id="codiDescompte" >
         <button type="submit">Compra amb descompte</button>
     </form>
 
