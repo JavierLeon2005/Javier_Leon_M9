@@ -16,19 +16,25 @@ if ($majoredat == 'no') {
 } else {
 
     if ($idioma == 'catala') {
-        $missatge = "T’oferim el vi “Les Terrasses” a un preu de 39 ";
+        $missatge = "T’oferim el vi Les Terrasses a un preu de 39 ";
+	$missatge1 = "Tambe t'oferim el vi La Rioja a un preu de 19";
     } elseif ($idioma == 'espanol') {
-        $missatge = "Te ofrecemos el vino “Les Terrasses” a un precio de 39 ";
+        $missatge = "Te ofrecemos el vino Les Terrasses a un precio de 39 ";
+	$missatge1 = "Tambien te ofrecemos el vino La Rioja a un precio de 19";
     } else {
-        $missatge = "We offer you the wine “Les Terrasses” at a price of 39 ";
+        $missatge = "We offer you the wine Les Terrasses at a price of 39 ";
+	$missatge1 = "We also offer you the wine La Rioja at a price of 19";
     }
 
     if ($moneda == 'euro') {
         $missatge .= "€";
+	$missatge1 .= "€";
     } elseif ($moneda == 'libra') {
         $missatge .= "£";
+	$missatge1 .= "£";
     } else {
         $missatge .= "$";
+	$missatge1 .= "$";
     }
 }
 ?>
@@ -43,5 +49,6 @@ if ($majoredat == 'no') {
 <body>
     <h1>Informació de la Botiga</h1>
     <p><?php echo $missatge; ?></p>
+    <p><?php echo $missatge1; ?></p>
 </body>
 </html>
