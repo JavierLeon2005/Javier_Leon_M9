@@ -2,7 +2,6 @@
 session_start();
 if (!isset($_SESSION['nom'])) {
     header('Location: index.html'); // Redirigeix si no hi ha sessió activa
-    exit();
 }
 ?>
 <!DOCTYPE html>
