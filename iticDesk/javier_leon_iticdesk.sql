@@ -1,5 +1,11 @@
 CREATE USER IF NOT EXISTS 'xavi'@'localhost' IDENTIFIED BY 'xavi';
 GRANT ALL PRIVILEGES ON . TO 'xavi'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+CREATE DATABASE javier_leon_iticdesk;
+USE javier_leon_iticdesk;
+
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1deb3
 -- https://www.phpmyadmin.net/
