@@ -13,26 +13,13 @@ $sql = "SELECT id, nom, cognom, rol FROM usuaris WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_array($result);
 
+// Verificar si el usuario existe
 if (!$user) {
     echo "Usuari no trobat.";
 }
 
 $usuari_id = $user['id'];
 $rol = $user['rol'];
-
-// Eliminar incidència si es rep un ID per eliminar
-if (isset($_POST['eliminar_id'])) {
-    $eliminar_id = $_POST['eliminar_id'];
-    
-    if ($rol == 'administrador') {
-        $sql = "DELETE FROM incidencies WHERE id = '$eliminar_id'";
-    } else {
-        $sql = "DELETE FROM incidencies WHERE id = '$eliminar_id' AND usuari_id = '$usuari_id'";
-    }
-    
-    mysqli_query($conn, $sql);
-    header("Location: incidencies.php");
-}
 
 // Consulta d'incidències segons el rol
 if ($rol == 'administrador') {
@@ -61,7 +48,6 @@ $result = mysqli_query($conn, $sql);
             <th>Descripció</th>
             <th>Data Creació</th>
             <th>Estat</th>
-            <th>Acció</th>
         </tr>
         <?php while ($row = mysqli_fetch_array($result)) { ?>
         <tr>
@@ -71,12 +57,6 @@ $result = mysqli_query($conn, $sql);
             <td><?php echo $row['descripcio']; ?></td>
             <td><?php echo $row['data_creacio']; ?></td>
             <td><?php echo $row['estat']; ?></td>
-            <td>
-                <form method="post" onsubmit="return confirm('Segur que vols eliminar aquesta incidència?');">
-                    <input type="hidden" name="eliminar_id" value="<?php echo $row['id']; ?>">
-                    <button type="submit">Eliminar</button>
-                </form>
-            </td>
         </tr>
         <?php } ?>
     </table>
