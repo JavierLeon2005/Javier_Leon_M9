@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $usuari_id = $user['id'];
 
-    // Insertar incidència amb la data i estat
+    // Insertar incidència amb la data
     $sql = "INSERT INTO incidencies (prioritat, titol, descripcio, usuari_id, data_creacio, estat) 
             VALUES ('$prioritat', '$titol', '$descripcio', '$usuari_id', '$data_creacio', '$estat')";
 
